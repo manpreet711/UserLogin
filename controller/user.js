@@ -83,3 +83,10 @@ exports.signout = (req,res) => {
         message:"User Signout Sucessfully"
     });
 }
+
+exports.signout = (req,res) => {
+    res.clearCookiee("token");
+    res.json({
+        message:"User Signout Sucessfully"
+    });
+}
