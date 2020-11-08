@@ -40,7 +40,6 @@ exports.signup = (req,res) => {
 exports.signin = (req,res) => {
     //find user
     const newuser =  db.user.findOne({ where: { email: req.body.email } })
-    // db.user.findOne({Where:{email:req.body.email}})
     .then( (newuser) => {
         if(newuser === null){
             res.status(401).json({
@@ -55,7 +54,6 @@ exports.signin = (req,res) => {
                         if(err){
                         res.status(401).json({     
                             message:"err in generating token ",
-                            
                         });
                         }else{
                             res.status(200).json({     
