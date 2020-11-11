@@ -1,1 +1,0 @@
-const KEY = process.env.SECRET;
