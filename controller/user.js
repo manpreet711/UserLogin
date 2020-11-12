@@ -63,10 +63,10 @@ exports.signin = (req, res) => {
                   //Put token in cookie
                   res.cookie("token", token, { expire: new Date() + 9999 });
                   //send response to frontend
-                  const { id, firstName, lastName, age, email } = newuser;
+                  const { id, firstName, lastName, age, email, role } = newuser;
                   res.json({
                     token,
-                    user: { id, firstName, lastName, age, email },
+                    user: { id, firstName, lastName, age, email, role },
                   });
                 } else if (err) {
                   res.status(401).json({
@@ -97,7 +97,6 @@ exports.signout = (req, res) => {
   });
 };
 
-// Getting user
 exports.getOneUser = (req, res) => {
   const id = req.params.id;
   db.user
