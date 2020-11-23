@@ -61,7 +61,7 @@ exports.signin = (req, res) => {
               function (err, token) {
                 if (token) {
                   //Put token in cookie
-                  res.cookie("token", token, { expire: new Date() + 9999 });
+                  res.cookie("token", token, { expire: new Date() + 999 });
                   //send response to frontend
                   const { id, firstName, lastName, age, email, role } = newuser;
                   res.json({
@@ -85,7 +85,7 @@ exports.signin = (req, res) => {
     })
     .catch((err) => {
       res.status(500).json({
-        message: "Something went wrong",
+        message: "Enter correct email id",
       });
     });
 };
